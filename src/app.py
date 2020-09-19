@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request , Response,send_file
+from stt import *
 
 __author__ = 'YY20'
 
@@ -26,7 +27,13 @@ def upload():
         print(destination)
         file.save(destination)
 
-    return render_template("complete.html")
+    mainSTT(destination)
+
+    return send_file(os.path.join(APP_ROOT, 'csv/out.csv'),
+                     mimetype='text/csv',
+                     attachment_filename=filename.split('.')[0]+'.csv',
+                     as_attachment=True)
+ 
 
 if __name__ == "__main__":
     app.run(port=4555, debug=True)

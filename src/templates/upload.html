@@ -11,7 +11,8 @@
     <strong>Files:</strong><br>
     <input id="file-picker" type="file" name="file" accept="audio/*" multiple>
     <div id="msg"></div>
-    <input type="submit" value="Upload!" id="upload-button">
+    <input type="submit" value="Upload&Process!" id="upload-button">
+   
 </form>
 </body>
 <script>
@@ -22,7 +23,7 @@
 
         for (var i=0; i<input.files.length; i++)
         {
-        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+        
             var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
 
             if ((ext == 'wav') || (ext == 'mp3'))
