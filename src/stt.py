@@ -37,13 +37,14 @@ class STT():
 
     def parse_result(self,result):
         data={}
+        data['Words'] = []
         for result in result.results:
             alternative = result.alternatives[0]
             print('Transcript: {}'.format(alternative.transcript))
             # data['Transcript:'] = alternative.transcript
             print('Confidence: {}'.format(alternative.confidence))
             # data['Confidence:'] = alternative.confidence
-            data['Words'] = []
+            
             for word_info in alternative.words:
                 word = word_info.word
                 start_time = word_info.start_time
@@ -73,5 +74,5 @@ def mainSTT(fname):
 
 
 if __name__ == '__main__':
-    mainSTT('input_s.mp3')
+    mainSTT('C:\\Users\\yuzba\\Downloads\\a1.mp3')
     
